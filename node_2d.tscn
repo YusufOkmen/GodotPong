@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b1a826je6twwl"]
 
+[ext_resource type="Script" uid="uid://b02awrypnj3xk" path="res://player.gd" id="1_0e48y"]
 [ext_resource type="Texture2D" uid="uid://cxqotf8qi7w87" path="res://Assets/Paddle.png" id="1_wtcfe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fglp6"]
@@ -9,6 +10,7 @@ size = Vector2(17, 104)
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=278265168]
 position = Vector2(100, 300)
+script = ExtResource("1_0e48y")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1355917437]
