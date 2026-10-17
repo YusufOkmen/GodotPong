@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://de78u6sepvyir"]
+
+[ext_resource type="Texture2D" uid="uid://b50owo1re4mjy" path="res://Assets/Ball.png" id="1_x8fbi"]
+
+[sub_resource type="GDScript" id="GDScript_fglp6"]
+script/source = "extends CharacterBody2D
+
+var speed = 400;
+
+func _ready():
+	velocity.x = [-1,1][randi() % 2] * speed;
+	velocity.y = [-0.8,0.8][randi() % 2] * speed;
+	
+func _physics_process(delta):
+	move_and_slide();
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fglp6"]
+radius = 16.03122
+
+[node name="Ball" type="CharacterBody2D" unique_id=1075004656]
+script = SubResource("GDScript_fglp6")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1221473896]
+texture = ExtResource("1_x8fbi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=799129274]
+shape = SubResource("CircleShape2D_fglp6")

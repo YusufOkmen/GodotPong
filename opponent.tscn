@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://778blqyqhc0x"]
+
+[ext_resource type="Texture2D" uid="uid://cxqotf8qi7w87" path="res://Assets/Paddle.png" id="1_amo4f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fglp6"]
+size = Vector2(29, 119)
+
+[node name="Node2D" type="Node2D" unique_id=1102363809]
+
+[node name="Opponent" type="CharacterBody2D" parent="." unique_id=187089155]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Opponent" unique_id=1980861969]
+texture = ExtResource("1_amo4f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Opponent" unique_id=405099105]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_fglp6")
