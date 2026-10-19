@@ -6,7 +6,7 @@
 [sub_resource type="GDScript" id="GDScript_fglp6"]
 script/source = "extends CharacterBody2D
 
-var speed = 400;
+var speed = 650;
 
 func _ready():
 	velocity.x = [-1,1][randi() % 2] * speed;
@@ -17,6 +17,9 @@ func _physics_process(delta):
 	if collision_object:
 		velocity = velocity.bounce(collision_object.get_normal());
 		get_node(\"ImpactSound\").play();
+
+
+
 		
 		
 func stop_ball():

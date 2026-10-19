@@ -10,7 +10,7 @@
 size = Vector2(1149, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3dyp6"]
-size = Vector2(58.25, 636)
+size = Vector2(40.125, 636)
 
 [node name="Level" type="Node" unique_id=1623666290]
 script = ExtResource("1_0b4ue")
@@ -22,6 +22,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.07058824, 0.11764706, 0.1882353, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1419548491]
+offset_left = 1093.0
+offset_top = 2.0
+offset_right = 1174.0
+offset_bottom = 649.0
+color = Color(0.6156863, 0.15686275, 0.14509805, 1)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1605769756]
+offset_top = 1.0
+offset_right = 72.0
+offset_bottom = 648.0
+color = Color(0.6156863, 0.15686275, 0.14509805, 1)
 
 [node name="OpponentScore" type="Label" parent="." unique_id=731610351]
 anchors_preset = 15
@@ -67,6 +80,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Walls" type="StaticBody2D" parent="." unique_id=1819322804]
+collision_layer = 4
+collision_mask = 3
 
 [node name="WallTop" type="CollisionShape2D" parent="Walls" unique_id=1842171785]
 position = Vector2(575, 654)
@@ -77,26 +92,35 @@ position = Vector2(577.5, -7)
 shape = SubResource("RectangleShape2D_fglp6")
 
 [node name="Player" parent="." unique_id=1675477458 instance=ExtResource("1_u52ul")]
+position = Vector2(95, 300)
+collision_layer = 2
+collision_mask = 4
+motion_mode = 1
 
 [node name="Opponent" parent="." unique_id=1102363809 instance=ExtResource("2_vonw3")]
-position = Vector2(1073, 300)
+position = Vector2(1075, 300)
+collision_mask = 4
+motion_mode = 1
 
 [node name="ball" parent="." unique_id=1075004656 instance=ExtResource("3_oi3di")]
 position = Vector2(575, 300)
+collision_mask = 7
+motion_mode = 1
 
 [node name="Left" type="Area2D" parent="." unique_id=978594316]
 position = Vector2(-33, 327)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left" unique_id=744537982]
-position = Vector2(4, -6)
+position = Vector2(85, -2)
 shape = SubResource("RectangleShape2D_3dyp6")
 metadata/_edit_group_ = true
 
 [node name="Right" type="Area2D" parent="." unique_id=1043701869]
-position = Vector2(1182, 324)
+position = Vector2(1104, 323)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right" unique_id=2100740994]
+position = Vector2(9.0625, 0)
 shape = SubResource("RectangleShape2D_3dyp6")
 
 [node name="CountdownTimer" type="Timer" parent="." unique_id=1667707407]

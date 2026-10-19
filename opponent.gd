@@ -20,8 +20,8 @@
 
 extends CharacterBody2D
 
-var speed = 150
-var ball
+var speed = 500;
+var ball;
 
 func _ready():
 	ball = get_parent().get_node("ball")

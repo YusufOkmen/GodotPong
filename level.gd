@@ -32,7 +32,7 @@ func score_achieved():
 	$CountdownLabel.visible = true;
 	$ScoreSound.play();
 		# Resetting player and opponent position.
-	$Player.position.x = 100;
+	$Player.position.x = 93;
 	$Player.position.y = 300;
-	$Opponent.position.x = 1073;
+	$Opponent.position.x = 1075;
 	$Opponent.position.y = 300;
