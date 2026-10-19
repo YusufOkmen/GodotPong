@@ -16,13 +16,19 @@ func _physics_process(delta):
 	if collision_object:
 		velocity = velocity.bounce(collision_object.get_normal());
 		
-		
+func stop_ball():
+	velocity = Vector2.ZERO;
+	
+func restart_ball():
+	print(\"Hello world!\");
+	velocity.x = [-1,1][randi() % 2] * speed;
+	velocity.y = [-0.8,0.8][randi() % 2] * speed;
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fglp6"]
 radius = 16.03122
 
-[node name="Ball" type="CharacterBody2D" unique_id=1075004656]
+[node name="Ball" type="CharacterBody2D" unique_id=1075004656 groups=["BallGroup", "RestartBallGroup"]]
 script = SubResource("GDScript_fglp6")
 metadata/_edit_group_ = true
 
@@ -30,4 +36,5 @@ metadata/_edit_group_ = true
 texture = ExtResource("1_x8fbi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=799129274]
+visible = false
 shape = SubResource("CircleShape2D_fglp6")

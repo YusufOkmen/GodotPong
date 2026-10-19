@@ -50,6 +50,21 @@ text = "Text
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="CountdownLabel" type="Label" parent="." unique_id=240708149]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -200)
+theme_override_colors/font_color = Color(0.9529412, 0.3137255, 0.16078432, 1)
+theme_override_font_sizes/font_size = 60
+text = "Countdown"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Walls" type="StaticBody2D" parent="." unique_id=1819322804]
 
 [node name="WallTop" type="CollisionShape2D" parent="Walls" unique_id=1842171785]
@@ -83,5 +98,10 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right" unique_id=2100740994]
 shape = SubResource("RectangleShape2D_3dyp6")
 
+[node name="CountdownTimer" type="Timer" parent="." unique_id=1667707407]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="body_entered" from="Left" to="." method="_on_left_body_entered"]
 [connection signal="body_entered" from="Right" to="." method="_on_right_body_entered"]
+[connection signal="timeout" from="CountdownTimer" to="." method="_on_countdown_timer_timeout"]
