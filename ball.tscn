@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://de78u6sepvyir"]
 
 [ext_resource type="Texture2D" uid="uid://b50owo1re4mjy" path="res://Assets/Ball.png" id="1_x8fbi"]
+[ext_resource type="AudioStream" uid="uid://duq4stlukb8o6" path="res://Assets/ping_pong_8bit_beeep.ogg" id="2_41u45"]
 
 [sub_resource type="GDScript" id="GDScript_fglp6"]
 script/source = "extends CharacterBody2D
@@ -15,12 +16,13 @@ func _physics_process(delta):
 	var collision_object = move_and_collide(velocity * delta);
 	if collision_object:
 		velocity = velocity.bounce(collision_object.get_normal());
+		get_node(\"ImpactSound\").play();
+		
 		
 func stop_ball():
 	velocity = Vector2.ZERO;
 	
 func restart_ball():
-	print(\"Hello world!\");
 	velocity.x = [-1,1][randi() % 2] * speed;
 	velocity.y = [-0.8,0.8][randi() % 2] * speed;
 "
@@ -38,3 +40,6 @@ texture = ExtResource("1_x8fbi")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=799129274]
 visible = false
 shape = SubResource("CircleShape2D_fglp6")
+
+[node name="ImpactSound" type="AudioStreamPlayer" parent="." unique_id=1957194696]
+stream = ExtResource("2_41u45")

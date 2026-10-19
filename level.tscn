@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b1a826je6twwl" path="res://player.tscn" id="1_u52ul"]
 [ext_resource type="PackedScene" uid="uid://778blqyqhc0x" path="res://opponent.tscn" id="2_vonw3"]
 [ext_resource type="PackedScene" uid="uid://de78u6sepvyir" path="res://ball.tscn" id="3_oi3di"]
+[ext_resource type="AudioStream" uid="uid://dbboblgibr1xc" path="res://Assets/ping_pong_8bit_plop.ogg" id="5_f2txt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fglp6"]
 size = Vector2(1149, 16)
@@ -78,10 +79,10 @@ shape = SubResource("RectangleShape2D_fglp6")
 [node name="Player" parent="." unique_id=1675477458 instance=ExtResource("1_u52ul")]
 
 [node name="Opponent" parent="." unique_id=1102363809 instance=ExtResource("2_vonw3")]
-position = Vector2(1073, 297)
+position = Vector2(1073, 300)
 
 [node name="ball" parent="." unique_id=1075004656 instance=ExtResource("3_oi3di")]
-position = Vector2(575.615, 342.185)
+position = Vector2(575, 300)
 
 [node name="Left" type="Area2D" parent="." unique_id=978594316]
 position = Vector2(-33, 327)
@@ -101,6 +102,9 @@ shape = SubResource("RectangleShape2D_3dyp6")
 [node name="CountdownTimer" type="Timer" parent="." unique_id=1667707407]
 wait_time = 2.0
 one_shot = true
+
+[node name="ScoreSound" type="AudioStreamPlayer" parent="." unique_id=1981209132]
+stream = ExtResource("5_f2txt")
 
 [connection signal="body_entered" from="Left" to="." method="_on_left_body_entered"]
 [connection signal="body_entered" from="Right" to="." method="_on_right_body_entered"]
